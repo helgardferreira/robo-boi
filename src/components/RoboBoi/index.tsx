@@ -57,10 +57,8 @@ const RoboBoi: FunctionComponent = () => {
     // return () => animations.forEach((clip) => mixer.uncacheClip(clip));
   }, [animations, mixer]);
 
-  useFrame(({ clock }) => {
-    const dt = clock.getDelta();
-
-    mixer.update(dt * 1000);
+  useFrame((_, delta) => {
+    mixer.update(delta);
   });
 
   return <primitive object={model} />;
